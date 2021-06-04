@@ -26,8 +26,8 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-6 mb-3">
-								<label>Categoría:</label> <select class="form-control"
-									th:field="*{categoria.id}" required="required">
+								<label>Categoría:</label>
+								 <select class="form-control"	th:field="*{categoria.id}" required="required">
 									<option value="">Seleccione una opción</option>
 									<option th:each="item : ${listaCategorias}"
 										th:value="${item.id}" th:text="${item.categoria_nombre}"></option>
@@ -125,7 +125,8 @@
 								<td th:text="${item.precio}"></td>
 								<td th:text="${item.descripcion}"></td>
 								<td th:text="${item.categoria.categoria_nombre}"></td>
-								<td class="text-center"><a href="#" th:id="${item.id}"
+								<td class="text-center">
+								<a href="#" th:id="${item.id}"
 									th:param1="${item.marca}" th:param2="${item.nombre}"
 									th:param3="${item.modelo}" th:param4="${item.genero}"
 									th:param5="${item.precio}" th:param6="${item.descripcion}"
