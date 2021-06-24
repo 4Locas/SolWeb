@@ -8,4 +8,5 @@ public interface ITiendaService {
 	
 	public void save(Tienda tienda);
 	public List<Tienda> findAll();
+	public Boolean verificarExisteTienda(String nombre);
 }

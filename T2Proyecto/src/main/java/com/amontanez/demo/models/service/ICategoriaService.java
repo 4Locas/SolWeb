@@ -7,4 +7,6 @@ import com.amontanez.demo.entity.Categoria;
 public interface ICategoriaService {
 	public void save(Categoria categoria);
 	public List<Categoria> findAll();
+	public Boolean verificarExisteCategoria(String nombre);
+	
 }

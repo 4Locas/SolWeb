@@ -16,9 +16,8 @@
 	<!--sidebar end-->
 	
 	<div class="content">
-	<div class="container mt-4">
-	<br>
-	<br>
+	<div th:replace="Layouts/fragmentos :: advertencias"></div>
+	<div class="container mt-4">	
       	<form th:action="@{/tienda/form}" th:object="${tienda}" method="post" class="needs-validation" novalidate>
 					<div class="card">
 						<div class="card-header color-barra text-white">Datos de la Tienda</div>
@@ -29,12 +28,18 @@
 										class="form-control" placeholder="Ingrese nombre"
 										minlength="1" maxlength="50" required="required" />
 									<div class="invalid-feedback">Ingrese el nombre</div>
+									<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('nombre')}"
+									th:errors="*{nombre}"></small>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label>Dirección:</label> <input th:field="*{direccion}"
 										type="text" class="form-control"
 										placeholder="Ingrese dirección" required="required" />
 									<div class="invalid-feedback">Ingrese la dirección</div>
+									<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('direccion')}"
+									th:errors="*{direccion}"></small>
 								</div>
 							</div>
 							<div class="row">
@@ -43,12 +48,18 @@
 										class="form-control" placeholder="Ingrese teléfono"
 										minlength="1" maxlength="50" required="required" />
 									<div class="invalid-feedback">Ingrese el teléfono</div>
+									<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('telefono')}"
+									th:errors="*{telefono}"></small>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label>Descripción:</label> <input th:field="*{descripcion}"
 										type="text" class="form-control"
 										placeholder="Ingrese descripción" required="required" />
 									<div class="invalid-feedback">Ingrese descripción</div>
+									<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('descripcion')}"
+									th:errors="*{descripcion}"></small>
 								</div>
 							</div>
 							<br> 

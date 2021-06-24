@@ -8,20 +8,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "categoria")
+@Table(name = "categoria", uniqueConstraints = {@UniqueConstraint(columnNames = {"categoria_nombre"})})
 public class Categoria implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idcategoria")
 	private Long id;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name = "categoria_nombre")
-	private String categoria_nombre;
+	private String categorianombre;
 
 	public Long getId() {
 		return id;
@@ -31,13 +37,15 @@ public class Categoria implements Serializable{
 		this.id = id;
 	}
 
-	public String getCategoria_nombre() {
-		return categoria_nombre;
+	public String getCategorianombre() {
+		return categorianombre;
 	}
 
-	public void setCategoria_nombre(String categoria_nombre) {
-		this.categoria_nombre = categoria_nombre;
+	public void setCategorianombre(String categorianombre) {
+		this.categorianombre = categorianombre;
 	}
+
+	
 
 
 

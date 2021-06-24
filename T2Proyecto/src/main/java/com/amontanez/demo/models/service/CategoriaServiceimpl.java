@@ -25,6 +25,20 @@ public class CategoriaServiceimpl implements ICategoriaService{
 	public List<Categoria> findAll() {
 		return (List<Categoria>) categoriaDAO.findAll();
 	}
+
+	@Override
+	public Boolean verificarExisteCategoria(String nombre) {
+		List<Categoria> lista = categoriaDAO.findBycategorianombre(nombre);
+		Boolean rpta;
+		if(lista.size() == 0) {
+			rpta = true;			
+		}else {
+			rpta = false;
+		}
+		return rpta;
+	}
+
+	
 	
 	
 	

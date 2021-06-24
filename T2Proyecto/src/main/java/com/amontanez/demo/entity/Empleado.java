@@ -12,6 +12,8 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="empleado")
@@ -22,12 +24,18 @@ public class Empleado {
 	@Column(name = "idempleado")
 	private Long id;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name = "nombre_empleado")
-	private String nombre_empleado;
+	private String nombre;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name = "direccion")
 	private String direccion;
 	
+	@NotEmpty
+	@Size(min = 9, max = 9)
 	@Column(name = "telefono")
 	private String telefono;
 	
@@ -49,12 +57,14 @@ public class Empleado {
 		this.id = id;
 	}
 
-	public String getNombre_empleado() {
-		return nombre_empleado;
+	
+
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNombre_empleado(String nombre_empleado) {
-		this.nombre_empleado = nombre_empleado;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getDireccion() {

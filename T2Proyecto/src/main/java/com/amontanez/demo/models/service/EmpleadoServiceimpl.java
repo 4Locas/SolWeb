@@ -24,5 +24,17 @@ public class EmpleadoServiceimpl implements IEmpleadoService{
 	public List<Empleado> findAll() {
 		return (List<Empleado>)empleadoDAO.findAll();
 	}
+
+	@Override
+	public Boolean verificarExisteEmpleado(String nombre) {
+		List<Empleado> lista = empleadoDAO.findBynombre(nombre);
+		Boolean rpta;
+		if(lista.size() == 0) {
+			rpta = true;			
+		}else {
+			rpta = false;
+		}
+		return rpta;
+	}
 	
 }

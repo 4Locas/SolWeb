@@ -32,4 +32,16 @@ public class AlmacenServiceimpl implements IAlmacenService{
 		
 	}
 
+	@Override
+	public Boolean verificarExisteCategoria(String nombre) {
+		List<Almacen> lista = almacenDAO.findBynombrealmacen(nombre);
+		Boolean rpta;
+		if(lista.size()==0) {
+			rpta = true;			
+		}else {
+			rpta = false;
+		}
+		return rpta;
+	}
+
 }

@@ -27,7 +27,7 @@
 								
 								<div class="col-md-6 mb-3">
 									<label>Usuario:</label> <input th:field="*{nombre}" type="text"
-										class="form-control" placeholder="Ingrese nombre"
+										class="form-control" placeholder="Ingrese nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,20}"
 										required="required" />
 									<div class="invalid-feedback">Ingrese el nombre</div>
 								</div>

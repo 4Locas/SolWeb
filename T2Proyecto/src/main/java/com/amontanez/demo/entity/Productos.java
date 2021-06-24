@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "productos")
@@ -20,21 +23,32 @@ public class Productos implements Serializable{
 	@Column(name = "idproductos")
 	private Long id;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name = "marca")
 	private String marca;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name = "nombre")
 	private String nombre;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name = "modelo")
 	private String modelo;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name = "genero")
 	private String genero;
 	
+	@NotNull
 	@Column(name = "precio")
 	private Float precio;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name = "descripcion")
 	private String descripcion;
 	

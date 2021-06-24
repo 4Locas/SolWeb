@@ -10,27 +10,38 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "almacen")
 public class Almacen implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idalmacen")
 	private Long id;
 	
+	@NotEmpty
+	@Size(min = 4,max = 20)
 	@Column(name = "nombrealmacen")
 	private String nombrealmacen;
 	
+	@NotEmpty
+	@Size(min = 4,max = 100)
 	@Column(name = "direccionalmacen")
 	private String direccionalmacen;
 	
+	@NotEmpty
+	@Size(min = 9,max = 9)
 	@Column(name = "telefono")
 	private String telefono;
 	
+	@NotEmpty
+	@Size(min = 4,max = 20)
 	@Column(name = "tipo")
 	private String tipo;
 	

@@ -17,6 +17,7 @@
 	<!--sidebar end-->
 
 	<div class="content">
+	<div th:replace="Layouts/fragmentos :: advertencias"></div>
 		<form th:action="@{/productos/form/}" th:object="${productos}"
 			method="post" class="needs-validation" novalidate>
 			<div class="container mt-4">
@@ -30,7 +31,7 @@
 								 <select class="form-control"	th:field="*{categoria.id}" required="required">
 									<option value="">Seleccione una opción</option>
 									<option th:each="item : ${listaCategorias}"
-										th:value="${item.id}" th:text="${item.categoria_nombre}"></option>
+										th:value="${item.id}" th:text="${item.categorianombre}"></option>
 								</select>
 								<div class="invalid-feedback">Seleccione una Categoría</div>
 							</div>
@@ -43,18 +44,27 @@
 									class="form-control" th:field="*{marca}"
 									placeholder="Ingrese Marca del Producto" pattern="[a-zA-Z]{1,40}" title="Username should only contain lowercase letters. e.g. john" required="required" />
 								<div class="invalid-feedback">Ingrese Marca del producto</div>
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('marca')}"
+									th:errors="*{marca}"></small>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label>Nombre del Producto: </label> <input type="text"
 									class="form-control" th:field="*{nombre}"
 									placeholder="Ingrese Nombre del Producto" pattern="[a-zA-Z]{1,40}" required="required" />
 								<div class="invalid-feedback">Ingrese Nombre del producto</div>
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('nombre')}"
+									th:errors="*{nombre}"></small>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label>Modelo del Producto: </label> <input type="text"
 									class="form-control" th:field="*{modelo}"
 									placeholder="Ingrese Modelo del Producto" pattern="[a-zA-Z]{1,40}" required="required" />
 								<div class="invalid-feedback">Ingrese Modelo del producto</div>
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('modelo')}"
+									th:errors="*{modelo}"></small>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label>Sexo:</label> <select class="form-control"
@@ -66,12 +76,18 @@
 								<!--  <input type="text" class="form-control" th:field="*{genero}"
 								placeholder="Ingrese Sexo" required="required"/>-->
 								<div class="invalid-feedback">Ingrese Sexo</div>
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('genero')}"
+									th:errors="*{genero}"></small>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label>Precio del Producto: </label> <input type="text"
 									class="form-control" th:field="*{precio}"
 									placeholder="Ingrese precio del Producto" required="required" />
 								<div class="invalid-feedback">Ingrese Precio</div>
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('precio')}"
+									th:errors="*{precio}"></small>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label>Descripción del Producto: </label> <input type="text"
@@ -79,6 +95,9 @@
 									placeholder="Ingrese descripción del Producto"
 									 required="required" />
 								<div class="invalid-feedback">Ingrese Descripción</div>
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('descripcion')}"
+									th:errors="*{descripcion}"></small>
 							</div>
 						</div>
 						<br>
@@ -224,7 +243,7 @@
 								 <select class="form-control" name="categoria.id" id="cbocategoria"  required="required">
 									<option value="">Seleccione una opción</option>
 									<option th:each="item : ${listaCategorias}"
-										th:value="${item.id}" th:text="${item.categoria_nombre}"></option>
+										th:value="${item.id}" th:text="${item.categorianombre}"></option>
 								</select>
 							</div>
 						</div>

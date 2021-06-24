@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Tienda")
@@ -21,15 +23,23 @@ public class Tienda implements Serializable {
 	@Column(name="id_tienda")
 	private long id;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name="nombre_tienda")
 	private String nombre;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name="direccion_tienda")
 	private String direccion;
 	
+	@NotEmpty
+	@Size(min = 9, max = 9)
 	@Column(name="telefono_tienda")
 	private String telefono;
 	
+	@NotEmpty
+	@Size(min = 4, max = 20)
 	@Column(name="descripcion_tienda")
 	private String descripcion;
 

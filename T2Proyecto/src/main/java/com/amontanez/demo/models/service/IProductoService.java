@@ -8,4 +8,5 @@ public interface IProductoService {
 	public void save(Productos producto);
 	public List<Productos> listarProductos();
 	public void delete(Productos productos);
+	public Boolean verificarExisteProducto(String nombre);
 }

@@ -17,9 +17,8 @@
 	<!--sidebar end-->
 
 	<div class="content">
+	<div th:replace="Layouts/fragmentos :: advertencias"></div>
 		<div class="container mt-4">
-
-			<br> <br> <br>
 			<form th:action="@{/almacen/form}" th:object="${almacen}"
 				method="post" class="needs-validation" novalidate>
 				<div class="card">
@@ -46,6 +45,9 @@
 										title="Username should only contain lowercase letters. e.g. john"
 										required="required" />
 									<div class="invalid-feedback">Ingrese Nombre del almacen</div>
+									<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('nombrealmacen')}"
+									th:errors="*{nombrealmacen}"></small>
 								</div>
 								<div class="col-md-6 mb-3">
 									<label>Direccion del Almacen: </label> <input type="text"
@@ -53,20 +55,29 @@
 										placeholder="Ingrese Nombre del Producto"
 										pattern="[a-zA-Z]+[a-zA-Z ]+" required="required" />
 									<div class="invalid-feedback">Ingrese Direccion</div>
+									<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('direccionalmacen')}"
+									th:errors="*{direccionalmacen}"></small>
 								</div>
 								<div class="col-md-6 mb-3">
-									<label>Teléfono del Producto: </label> <input type="number"
+									<label>Teléfono del almacén	: </label> <input type="number"
 										class="form-control" th:field="*{telefono}"
-										placeholder="Ingrese Modelo del Producto"
-										pattern="[0-9]{1,40}" required="required" />
+										placeholder="Ingrese Teléfono"
+										pattern="^[0-9]$" required="required" />
 									<div class="invalid-feedback">Ingrese Telefono </div>
+									<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('telefono')}"
+									th:errors="*{telefono}"></small>
 								</div>								
 								<div class="col-md-6 mb-3">
-									<label>tipo de Almacen: </label> <input type="text"
+									<label>Tipo de Almacen: </label> <input type="text"
 										class="form-control" th:field="*{tipo}"
 										placeholder="Ingrese precio del Producto" pattern="[a-zA-Z]+[a-zA-Z ]+"
 										required="required" />
 									<div class="invalid-feedback">Ingrese Tipo</div>
+									<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('tipo')}"
+									th:errors="*{tipo}"></small>
 								</div>								
 							</div>
 

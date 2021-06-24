@@ -31,6 +31,18 @@ public class ProductosServiceImpl implements IProductoService{
 		
 	}
 
+	@Override
+	public Boolean verificarExisteProducto(String nombre) {
+		List<Productos> lista = productoDAO.findBynombre(nombre);
+		Boolean rpta;
+		if(lista.size() == 0) {
+			rpta = true;			
+		}else {
+			rpta = false;
+		}
+		return rpta;
+	}
+
 	
 
 	

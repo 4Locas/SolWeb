@@ -8,5 +8,5 @@ public interface IAlmacenService {
 	public void save(Almacen almacen);
 	public List<Almacen> listarAlmacen();
 	public void delete(Almacen almacen);
-
+	public Boolean verificarExisteCategoria(String nombre);
 }

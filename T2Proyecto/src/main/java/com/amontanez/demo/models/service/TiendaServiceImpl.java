@@ -22,6 +22,17 @@ public class TiendaServiceImpl implements ITiendaService {
 		
 		return (List<Tienda>)tiendaDAO.findAll();
 	}
+	@Override
+	public Boolean verificarExisteTienda(String nombre) {
+		List<Tienda> lista = tiendaDAO.findBynombre(nombre);
+		Boolean rpta;
+		if(lista.size() == 0) {
+			rpta = true;			
+		}else {
+			rpta = false;
+		}
+		return rpta;
+	}
 
 	
 

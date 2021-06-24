@@ -1,10 +1,15 @@
 package com.amontanez.demo.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.amontanez.demo.entity.Tienda;
 import com.amontanez.demo.models.service.ITiendaService;
 
@@ -26,8 +31,17 @@ public class TiendaController {
 	
 	//esto es el guardar
 	@RequestMapping(value= "/form", method= RequestMethod.POST)
-	public String guardar(Tienda tienda) {
-		tiendaService.save(tienda);
+	public String guardar(@Valid Tienda tienda, BindingResult resultado,Model model,RedirectAttributes flash) {
+		if(resultado.hasErrors()) {			
+			model.addAttribute("listaTiendas",tiendaService.findAll());
+			  return "tienda/index";
+		  }	
+		if(tiendaService.verificarExisteTienda(tienda.getNombre())) {
+			tiendaService.save(tienda);
+		}else {
+			flash.addFlashAttribute("error", "El nombre de la tienda no puede ser duplicado");
+		}
+		
 		return "redirect:/tienda/";
 	}
 }
