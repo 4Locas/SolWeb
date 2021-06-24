@@ -26,9 +26,17 @@
 				<a style="color : white ; text-decoration:none" th:href="@{/}">Bron'S <span>Shoes</span></a>
 			</h3>
 		</div>
+		
 		<div class="right_area">
-			<a href="#" class="logout_btn">Cerrar Sesión</a>
+			
+			
+			<a href="#" class="logout_btn"><i class="fas fa-male"></i> <span sec:authentication="name"></span>
+			<form class="" th:action="@{/logout}" method= "post">
+	                <button type="submit" class="btn btn-warning">Salir del sistema</button>
+	        </form>
+			</a>
 		</div>
+		
 	</div>
 	<!--header area end-->
 	<div class="mobile_nav" th:fragment="Segundofragment">
@@ -84,7 +92,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-plus-square"></i> <span>Ingresar</span><span class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></span></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-plus-square"></i> <span>Ingresar&nbsp;&nbsp;&nbsp;</span><span class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></span></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav"></nav>
