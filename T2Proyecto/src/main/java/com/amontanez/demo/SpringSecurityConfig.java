@@ -33,7 +33,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 		.antMatchers("/","/css/bootstrap.min.css","/css/all.css","/webfonts/**","/css/estilo.css",
 				"/js/jquery-3.5.1.min.js","/js/bootstrap.bundle.min.js","/Imagen/**").permitAll()
-		.antMatchers("/categoria/**","/almacen/**","/productos/**").hasAnyRole("USER")
+		.antMatchers("/","/categoria/**","/almacen/**","/productos/**").hasAnyRole("USER")
 		.antMatchers("/tienda/**","/empleado/**").hasAnyRole("ADMIN")
 		.anyRequest().authenticated()
 		.and()
